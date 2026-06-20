@@ -219,3 +219,14 @@
     height: 100vh;
     overflow-y: scroll;
 }
+
+.product-card-img {
+    height: 100%;
+    width: 100%;
+}
+
+.product-card-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}

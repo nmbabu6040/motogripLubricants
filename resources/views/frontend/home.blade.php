@@ -253,10 +253,13 @@
                 @foreach ($featuredProducts as $product)
                     <div class="col-lg-4 mb-4">
 
-                        <div class="card h-100 shadow">
+                        <div class="card h-100 shadow p-4">
 
                             @if ($product->image)
-                                <img src="{{ asset('storage/products/' . $product->image) }}" class="card-img-top">
+                                <div class="product-card-img ">
+                                    <img src="{{ asset('storage/products/' . $product->image) }}"
+                                        class="card-img-top img-fluid w-100">
+                                </div>
                             @endif
 
                             <div class="card-body">
@@ -264,12 +267,11 @@
                                 <h5>{{ $product->name }}</h5>
 
                                 <p>
-                                    {{ \Illuminate\Support\Str::limit($product->short_description, 80) }}
+                                    {!! \Illuminate\Support\Str::limit($product->short_description) !!}
                                 </p>
 
                                 <div class="d-flex justify-content-center">
-                                    <a href="{{ route('product.details', $product->slug) }}"
-                                        class="btn btn-success btn-md">
+                                    <a href="{{ route('product.details', $product->slug) }}" class="btn btn-success btn-md">
 
                                         View Details
 

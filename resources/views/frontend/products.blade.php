@@ -82,7 +82,7 @@
         <div class="row">
 
             @forelse($products as $product)
-                <div class="col-md-3 mb-4">
+                <div class="col-md-4 mb-4">
 
                     <div class="card h-100 shadow-sm">
 
@@ -100,11 +100,14 @@
 
                             <p>
 
-                                {{ Str::limit($product->short_description, 60) }}
+                                {{-- {{ Str::limit($product->short_description, 60) }} --}}
+                                {!! \Illuminate\Support\Str::limit($product->short_description, 100) !!}
+                                {{-- {!! $product->short_description !!} --}}
+
 
                             </p>
 
-                            <a href="{{ route('product.details', $product->slug) }}" class="btn btn-warning">
+                            <a href="{{ route('product.details', $product->slug) }}" class="btn btn-success">
 
                                 View Details
 
