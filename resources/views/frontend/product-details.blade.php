@@ -173,36 +173,39 @@
                     @endif
 
 
-                    @if ($product->datasheet_pdf)
-                        <div class="my-4">
+                    <div class="d-flex gap-2">
 
-                            <a href="{{ asset('storage/products/' . $product->datasheet_pdf) }}" target="_blank"
-                                class="btn btn-danger">
+                        @if ($product->datasheet_pdf)
+                            <div class="my-4">
 
-                                <i class="bi bi-file-earmark-pdf"></i>
+                                <a href="{{ asset('storage/products/' . $product->datasheet_pdf) }}" target="_blank"
+                                    class="btn btn-danger">
 
-                                Download Datasheet
+                                    <i class="bi bi-file-earmark-pdf"></i>
+
+                                    Download Datasheet
+
+                                </a>
+
+                            </div>
+                        @endif
+
+
+                        @if ($setting && $setting->catalog_pdf)
+                            <a href="{{ asset('storage/settings/' . $setting->catalog_pdf) }}" download
+                                class="btn btn-warning ms-2">
+
+                                Download Catalog
 
                             </a>
+                        @endif
 
-                        </div>
-                    @endif
+                        <a href="{{ route('products') }}" class="btn btn-outline-success ms-2">
 
-
-                    @if ($setting && $setting->catalog_pdf)
-                        <a href="{{ asset('storage/settings/' . $setting->catalog_pdf) }}" download
-                            class="btn btn-warning ms-2">
-
-                            Download Catalog
+                            Back To Products
 
                         </a>
-                    @endif
-
-                    <a href="{{ route('products') }}" class="btn btn-outline-dark ms-2">
-
-                        Back To Products
-
-                    </a>
+                    </div>
 
                 </div>
 
@@ -223,7 +226,7 @@
 
                     <div class="card shadow border-0">
 
-                        <div class="card-header bg-primary text-white">
+                        <div class="card-header bg-success text-white">
 
                             <h4 class="mb-0">
 
@@ -301,7 +304,7 @@
 
                                 </div>
 
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-success">
 
                                     <i class="bi bi-send"></i>
 
@@ -360,7 +363,7 @@
                                         </h6>
 
                                         <a href="{{ route('product.details', $item->slug) }}"
-                                            class="btn btn-primary btn-sm">
+                                            class="btn btn-success btn-sm">
 
                                             View Details
 

@@ -121,6 +121,18 @@
 
         </a>
     @endif
+
+    <a href="#" class="scroll-top"><i class="bi bi-chevron-up"></i></a>
+
+    <script>
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('.scroll-top').fadeIn();
+            } else {
+                $('.scroll-top').fadeOut();
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-white menuNav">
+<nav class="navbar navbar-expand-lg navbar-light bg-white menuNav">
 
     <div class="container">
 

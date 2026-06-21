@@ -3,7 +3,7 @@
     <div class="container-fluid">
 
         <span class="navbar-brand text-white fw-bold">
-            Admin Dashboard
+            Welcome to {{ $setting->brand_name ?? 'Motogrip' }} Admin Panel
         </span>
 
         <div class="d-flex align-items-center gap-2">
