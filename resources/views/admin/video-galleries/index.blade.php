@@ -4,7 +4,7 @@
     <div class="card">
 
 
-        <div class="card-header d-flex justify-content-between align-items-center">
+        <div class="card-header d-flex justify-content-between align-items-center mb-4">
 
             <h4>
 
@@ -32,7 +32,7 @@
 
             <div class="table-responsive">
 
-                <table class="table table-bordered">
+                <table class="table table-bordered" id="dataTable">
 
                     <thead>
 
@@ -182,3 +182,31 @@
 
     </div>
 @endsection
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+
+            $('#dataTable').DataTable({
+
+                responsive: true,
+
+                pageLength: 10,
+
+                ordering: true,
+
+                searching: true,
+
+                lengthChange: true,
+
+            });
+
+        });
+    </script>
+@endpush
+@push('styles')
+    <style>
+        div.dataTables_wrapper div.dataTables_paginate {
+            margin-top: 20px;
+        }
+    </style>
+@endpush

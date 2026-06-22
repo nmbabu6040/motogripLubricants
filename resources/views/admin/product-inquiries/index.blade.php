@@ -30,7 +30,7 @@
 
                 <div class="table-responsive">
 
-                    <table class="table table-bordered table-striped">
+                    <table class="table table-bordered table-striped" id="dataTable">
 
                         <thead>
 
@@ -158,3 +158,31 @@
     </div>
 
 @endsection
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+
+            $('#dataTable').DataTable({
+
+                responsive: true,
+
+                pageLength: 10,
+
+                ordering: true,
+
+                searching: true,
+
+                lengthChange: true,
+
+            });
+
+        });
+    </script>
+@endpush
+@push('styles')
+    <style>
+        div.dataTables_wrapper div.dataTables_paginate {
+            margin-top: 20px;
+        }
+    </style>
+@endpush

@@ -123,8 +123,8 @@
 
             <form action="{{ route('products') }}" method="GET" class="d-flex ms-lg-3 mt-3 mt-lg-0">
 
-                <input type="text" name="search" class="form-control" placeholder="Search Products..."
-                    value="{{ request('search') }}">
+                <input type="text" name="search" class="form-control border-success"
+                    placeholder="Search Products..." value="{{ request('search') }}">
 
                 <button class="btn btn-success ms-2">
 
@@ -133,6 +133,12 @@
                 </button>
 
             </form>
+
+            <button id="theme-toggle" class="btn btn-outline-success ms-2">
+
+                🌙
+
+            </button>
 
         </div>
 

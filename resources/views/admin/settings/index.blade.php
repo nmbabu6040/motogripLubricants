@@ -25,7 +25,7 @@
 
                     <div class="row">
 
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-4 mb-3">
 
                             <label class="form-label">
                                 Company Name
@@ -36,7 +36,7 @@
 
                         </div>
 
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-4 mb-3">
 
                             <label class="form-label">
                                 Brand Name
@@ -47,7 +47,7 @@
 
                         </div>
 
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-4 mb-3">
 
                             <label class="form-label">
                                 Phone
@@ -57,7 +57,7 @@
 
                         </div>
 
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-4 mb-3">
 
                             <label class="form-label">
                                 Email
@@ -67,7 +67,7 @@
 
                         </div>
 
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-4 mb-3">
 
                             <label class="form-label">
                                 WhatsApp
@@ -78,7 +78,7 @@
 
                         </div>
 
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-4 mb-3">
 
                             <label class="form-label">
                                 Copyright
@@ -109,13 +109,68 @@
 
                         </div>
 
-                        <div class="col-md-12 mb-3">
+                        <div class="col-md-3 mb-3">
 
                             <label>About Image</label>
+
+                            @if (!empty($setting->about_image))
+                                <div class="mb-2">
+                                    <img src="{{ asset('storage/settings/' . $setting->about_image) }}" height="100">
+                                </div>
+                            @endif
 
                             <input type="file" name="about_image" class="form-control">
 
                         </div>
+
+                        <div class="col-md-3 mb-3">
+
+                            <label class="form-label">
+                                Mission Image
+                            </label>
+
+                            @if (!empty($setting->mission_image))
+                                <div class="mb-2">
+                                    <img src="{{ asset('storage/settings/' . $setting->mission_image) }}" height="100">
+                                </div>
+                            @endif
+
+                            <input type="file" name="mission_image" class="form-control">
+
+                        </div>
+
+                        <div class="col-md-3 mb-3">
+
+                            <label class="form-label">
+                                Vision Image
+                            </label>
+
+                            @if (!empty($setting->vision_image))
+                                <div class="mb-2">
+                                    <img src="{{ asset('storage/settings/' . $setting->vision_image) }}" height="100">
+                                </div>
+                            @endif
+
+                            <input type="file" name="vision_image" class="form-control">
+
+                        </div>
+
+                        <div class="mb-3 col-md-3">
+
+                            <label class="form-label">
+                                Chairman Image
+                            </label>
+
+                            @if (!empty($setting->chairman_image))
+                                <div class="mb-2">
+                                    <img src="{{ asset('storage/settings/' . $setting->chairman_image) }}" height="100">
+                                </div>
+                            @endif
+
+                            <input type="file" name="chairman_image" class="form-control">
+
+                        </div>
+
 
                         <div class=" col-md-12 mb-3">
 
@@ -125,15 +180,7 @@
 
                         </div>
 
-                        <div class="col-md-12 mb-3">
 
-                            <label class="form-label">
-                                Mission Image
-                            </label>
-
-                            <input type="file" name="mission_image" class="form-control">
-
-                        </div>
 
                         <div class="mb-3 col-md-12">
 
@@ -143,17 +190,8 @@
 
                         </div>
 
-                        <div class="col-md-12 mb-3">
 
-                            <label class="form-label">
-                                Vision Image
-                            </label>
-
-                            <input type="file" name="vision_image" class="form-control">
-
-                        </div>
-
-                        <div class="mb-3 col-md-12">
+                        <div class="mb-3 col-md-6">
 
                             <label class="form-label">
                                 Chairman Name
@@ -164,7 +202,7 @@
 
                         </div>
 
-                        <div class="mb-3 col-md-12">
+                        <div class="mb-3 col-md-6">
 
                             <label class="form-label">
                                 Chairman Designation
@@ -175,15 +213,7 @@
 
                         </div>
 
-                        <div class="mb-3 col-md-12">
 
-                            <label class="form-label">
-                                Chairman Image
-                            </label>
-
-                            <input type="file" name="chairman_image" class="form-control">
-
-                        </div>
 
                         <div class="mb-3 col-md-12">
 

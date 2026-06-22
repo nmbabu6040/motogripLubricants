@@ -9,64 +9,59 @@
             <div class="swiper-wrapper">
 
                 @foreach ($sliders as $slider)
-                    <div class="swiper-slide">
+                    <div class="swiper-slide ">
 
                         <div class="">
 
                             <div>
                                 <img src="{{ asset('storage/sliders/' . $slider->image) }}" class="img-fluid w-100">
                             </div>
+                            {{-- <div class="slider-overlay">
+                                <div class="slider-content text-center">
 
-                            {{-- <div class="col-md-6">
+                                    <h1 data-aos="fade-right">
 
-                                        <h1 data-aos="fade-right">
+                                        {{ $slider->title }}
 
-                                            {{ $slider->title }}
+                                    </h1>
 
-                                        </h1>
+                                    <p data-aos="fade-up">
 
-                                        <p data-aos="fade-up">
+                                        {{ $slider->subtitle }}
 
-                                            {{ $slider->subtitle }}
+                                    </p>
 
-                                        </p>
+                                    <div class="mt-4 d-flex gap-2">
 
-                                        <div class="mt-4 d-flex gap-2">
+                                        @if ($slider->button_text_1)
+                                            @if (strtolower(trim($slider->button_text_1)) == 'download catalog')
+                                                <a href="{{ asset('storage/settings/' . $setting->catalog_pdf) }}" download
+                                                    class="btn btn-warning">
 
-                                            @if ($slider->button_text_1)
-                                                @if (strtolower(trim($slider->button_text_1)) == 'download catalog')
-                                                    <a href="{{ asset('storage/settings/' . $setting->catalog_pdf) }}"
-                                                        download class="btn btn-warning">
+                                                    {{ $slider->button_text_1 }}
 
-                                                        {{ $slider->button_text_1 }}
+                                                </a>
+                                            @else
+                                                <a href="{{ $slider->button_link_1 }}" class="btn btn-warning">
 
-                                                    </a>
-                                                @else
-                                                    <a href="{{ $slider->button_link_1 }}" class="btn btn-warning">
-
-                                                        {{ $slider->button_text_1 }}
-
-                                                    </a>
-                                                @endif
-                                            @endif
-
-                                            @if ($slider->button_text_2)
-                                                <a href="{{ $slider->button_link_2 }}" class="btn btn-light ms-2">
-
-                                                    {{ $slider->button_text_2 }}
+                                                    {{ $slider->button_text_1 }}
 
                                                 </a>
                                             @endif
+                                        @endif
 
-                                        </div>
+                                        @if ($slider->button_text_2)
+                                            <a href="{{ $slider->button_link_2 }}" class="btn btn-light ms-2">
+
+                                                {{ $slider->button_text_2 }}
+
+                                            </a>
+                                        @endif
 
                                     </div>
 
-                                    <div class="col-md-6">
-
-                                        <img src="{{ asset('storage/sliders/' . $slider->image) }}" class="img-fluid">
-
-                                    </div> --}}
+                                </div>
+                            </div> --}}
 
                         </div>
 

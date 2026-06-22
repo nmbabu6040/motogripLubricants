@@ -28,6 +28,12 @@
 
             <input type="file" name="image" class="form-control">
 
+            @error('image')
+                <div class="text-danger mt-1">
+                    {{ $message }}
+                </div>
+            @enderror
+
         </div>
 
         <div class="mb-3">
@@ -83,9 +89,15 @@
 
         </div>
 
-        <button class="btn btn-success">
-            Save Slider
-        </button>
+        <div class="d-flex gap-2">
+            <button class="btn btn-success">
+                Save Slider
+            </button>
+
+            <a href="{{ route('sliders.index') }}" class="btn btn-danger">
+                Back
+            </a>
+        </div>
 
     </form>
 @endsection

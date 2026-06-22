@@ -21,8 +21,8 @@
                 <div class="col-lg-6">
 
                     @if ($setting->about_image)
-                        <div class="aboutImage">
-                            <img src="{{ asset('storage/settings/' . $setting->about_image) }}" class="img-fluid w-100">
+                        <div class="aboutImage rounded">
+                            <img src="{{ asset('storage/settings/' . $setting->about_image) }}" class="img-fluid rounded">
                         </div>
                     @endif
 
@@ -37,7 +37,7 @@
                     </h2> --}}
 
                     @if ($setting->brand_name)
-                        <h2 class="text-muted mb-3">
+                        <h2 class=" headTitle mb-3">
 
                             {{ $setting->brand_name }}
 
@@ -243,9 +243,10 @@
 @push('styles')
     <style>
         .aboutImage {
-            min-height: 300px;
-            height: 300px;
+            min-height: auto;
+            height: 400px;
             width: 100%;
+            min-width: 100%;
             overflow: hidden;
         }
 

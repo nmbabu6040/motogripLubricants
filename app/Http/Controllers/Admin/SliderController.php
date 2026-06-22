@@ -37,8 +37,13 @@ class SliderController extends Controller
     {
         $request->validate([
 
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048'
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:3072'
 
+        ], [
+            'image.required' => 'Product image is required.',
+            'image.image' => 'Please upload a valid image.',
+            'image.mimes' => 'Only JPG, JPEG, PNG and WEBP files are allowed.',
+            'image.max' => 'Image size must not exceed 3 MB.',
         ]);
 
         // image start
@@ -110,8 +115,13 @@ class SliderController extends Controller
 
         $request->validate([
 
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048'
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:3072'
 
+        ], [
+            'image.required' => 'Product image is required.',
+            'image.image' => 'Please upload a valid image.',
+            'image.mimes' => 'Only JPG, JPEG, PNG and WEBP files are allowed.',
+            'image.max' => 'Image size must not exceed 3 MB.',
         ]);
 
         //    image update part

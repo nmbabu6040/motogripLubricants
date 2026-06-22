@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    <div class="d-flex justify-content-between align-items-center mt-4 mb-3">
+    <div class="d-flex justify-content-between align-items-center mt-4 mb-4">
 
 
         <h3>Blogs</h3>
@@ -30,7 +30,7 @@
 
             <div class="table-responsive">
 
-                <table class="table table-bordered align-middle">
+                <table class="table table-bordered align-middle" id="dataTable">
 
                     <thead>
 
@@ -215,3 +215,32 @@
         </div>
     @endforeach
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+
+            $('#dataTable').DataTable({
+
+                responsive: true,
+
+                pageLength: 10,
+
+                ordering: true,
+
+                searching: true,
+
+                lengthChange: true,
+
+            });
+
+        });
+    </script>
+@endpush
+@push('styles')
+    <style>
+        div.dataTables_wrapper div.dataTables_paginate {
+            margin-top: 20px;
+        }
+    </style>
+@endpush

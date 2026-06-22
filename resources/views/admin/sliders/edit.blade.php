@@ -22,6 +22,12 @@
 
             <input type="file" name="image" class="form-control">
 
+            @error('image')
+                <div class="text-danger mt-1">
+                    {{ $message }}
+                </div>
+            @enderror
+
         </div>
 
         <div class="mb-3">

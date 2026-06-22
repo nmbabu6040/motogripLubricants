@@ -21,6 +21,7 @@ class SettingController extends Controller
 
     public function update(Request $request)
     {
+
         $setting = Setting::first();
 
         if (!$setting) {

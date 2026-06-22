@@ -144,6 +144,43 @@
 
 </footer>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        const toggle = document.getElementById('theme-toggle');
+
+        if (localStorage.getItem('theme') === 'dark') {
+
+            document.body.classList.add('dark-mode');
+
+            if (toggle) {
+                toggle.innerHTML = '☀️';
+            }
+
+        }
+
+        if (toggle) {
+
+            toggle.addEventListener('click', function() {
+
+                document.body.classList.toggle('dark-mode');
+
+                const isDark = document.body.classList.contains('dark-mode');
+
+                localStorage.setItem(
+                    'theme',
+                    isDark ? 'dark' : 'light'
+                );
+
+                toggle.innerHTML = isDark ? '☀️' : '🌙';
+
+            });
+
+        }
+
+    });
+</script>
+
 {{-- @push('style')
     <style>
         .footerBg {

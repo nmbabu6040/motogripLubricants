@@ -5,7 +5,7 @@
 
         <h3>Menus</h3>
 
-        <a href="{{ route('menus.create') }}" class="btn btn-primary">
+        <a href="{{ route('menus.create') }}" class="btn btn-success">
 
             Add Menu
 
@@ -25,7 +25,7 @@
 
         <div class="card-body">
 
-            <table class="table table-bordered align-middle">
+            <table class="table table-bordered align-middle" id="dataTable">
 
                 <thead>
 
@@ -124,3 +124,32 @@
 
     </div>
 @endsection
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+
+            $('#dataTable').DataTable({
+
+                responsive: true,
+
+                pageLength: 10,
+
+                ordering: true,
+
+                searching: true,
+
+                lengthChange: true,
+
+            });
+
+        });
+    </script>
+@endpush
+
+@push('styles')
+    <style>
+        div.dataTables_wrapper div.dataTables_paginate {
+            margin-top: 20px;
+        }
+    </style>
+@endpush

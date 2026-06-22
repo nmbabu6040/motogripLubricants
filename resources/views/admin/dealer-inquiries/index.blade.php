@@ -15,69 +15,101 @@
         </div>
     @endif
 
-    <table class="table table-bordered mt-3">
+    <table class="table table-bordered mt-3" id="dataTable">
 
-        <tr>
-
-            <th>ID</th>
-
-            <th>Name</th>
-
-            <th>Company</th>
-
-            <th>Phone</th>
-
-            <th>Email</th>
-
-            <th>City</th>
-
-            <th>Action</th>
-
-        </tr>
-
-        @foreach ($inquiries as $inquiry)
+        <thead>
             <tr>
 
-                <td>{{ $inquiry->id }}</td>
+                <th>ID</th>
 
-                <td>{{ $inquiry->name }}</td>
+                <th>Name</th>
 
-                <td>{{ $inquiry->company }}</td>
+                <th>Company</th>
 
-                <td>{{ $inquiry->phone }}</td>
+                <th>Phone</th>
 
-                <td>{{ $inquiry->email }}</td>
+                <th>Email</th>
 
-                <td>{{ $inquiry->city }}</td>
+                <th>City</th>
 
-                <td>
-
-                    <div class="d-flex justify-content-center gap-2">
-
-                        <a href="{{ route('dealer.inquiries.show', $inquiry->id) }}" class="btn btn-info btn-sm mb-1">
-
-                            View
-
-                        </a>
-
-                        <form action="{{ route('dealer.inquiries.destroy', $inquiry) }}" method="POST">
-
-                            @csrf
-                            @method('DELETE')
-
-                            <button class="btn btn-danger btn-sm">
-
-                                Delete
-
-                            </button>
-
-                        </form>
-                    </div>
-
-                </td>
+                <th>Action</th>
 
             </tr>
-        @endforeach
+        </thead>
+
+        <tbody>
+            @foreach ($inquiries as $inquiry)
+                <tr>
+
+                    <td>{{ $inquiry->id }}</td>
+
+                    <td>{{ $inquiry->name }}</td>
+
+                    <td>{{ $inquiry->company }}</td>
+
+                    <td>{{ $inquiry->phone }}</td>
+
+                    <td>{{ $inquiry->email }}</td>
+
+                    <td>{{ $inquiry->city }}</td>
+
+                    <td>
+
+                        <div class="d-flex justify-content-center gap-2">
+
+                            <a href="{{ route('dealer.inquiries.show', $inquiry->id) }}" class="btn btn-info btn-sm mb-1">
+
+                                View
+
+                            </a>
+
+                            <form action="{{ route('dealer.inquiries.destroy', $inquiry) }}" method="POST">
+
+                                @csrf
+                                @method('DELETE')
+
+                                <button class="btn btn-danger btn-sm">
+
+                                    Delete
+
+                                </button>
+
+                            </form>
+                        </div>
+
+                    </td>
+
+                </tr>
+            @endforeach
+        </tbody>
 
     </table>
 @endsection
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+
+            $('#dataTable').DataTable({
+
+                responsive: true,
+
+                pageLength: 10,
+
+                ordering: true,
+
+                searching: true,
+
+                lengthChange: true,
+
+            });
+
+        });
+    </script>
+@endpush
+@push('styles')
+    <style>
+        div.dataTables_wrapper div.dataTables_paginate {
+            margin-top: 20px;
+        }
+    </style>
+@endpush
