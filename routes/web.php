@@ -39,45 +39,72 @@ Route::get('/dashboard', function () {
     return redirect()->route('admin.dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
 
-// Backend Routes
+
+// Backend Routes start
 Route::middleware(['auth'])->prefix('admin')->group(function () {
 
+    // admin dashboard routes start
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+
+    // category routes start
     Route::resource('categories', CategoryController::class);
+
+    // product routes start
     Route::resource('products', ProductController::class);
     Route::delete(
         '/product-gallery/{image}',
         [ProductController::class, 'deleteGalleryImage']
     )->name('products.gallery.delete');
+
+    // settings routes start
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
     Route::post('/settings', [SettingController::class, 'update'])->name('settings.update');
+
+    // slider routes start
     Route::resource('sliders', SliderController::class);
+
+    // dealer inquiry routes
     Route::get('/dealer-inquiries', [AdminDealerInquiryController::class, 'index'])->name('dealer.inquiries.index');
     Route::get(
         '/dealer-inquiries/{dealerInquiry}',
         [AdminDealerInquiryController::class, 'show']
     )->name('dealer.inquiries.show');
     Route::delete('/dealer-inquiries/{dealerInquiry}', [AdminDealerInquiryController::class, 'destroy'])->name('dealer.inquiries.destroy');
+
+    // contact message routes
     Route::get('/contact-messages', [ContactMessageController::class, 'index'])->name('contact.messages.index');
     Route::get(
         '/contact-messages/{contactMessage}',
         [ContactMessageController::class, 'show']
     )->name('contact.messages.show');
     Route::delete('/contact-messages/{contactMessage}', [ContactMessageController::class, 'destroy'])->name('contact.messages.destroy');
+
+    // sub-category routes start
     Route::resource('sub-categories', SubCategoryController::class);
+
+    // user routes
     Route::resource('users', UserController::class);
+
+    // blog routes
     Route::resource('blogs', AdminBlogController::class);
+
+    // faq routes
     Route::resource('faqs', FaqController::class);
+
+    // gallery routes
     Route::resource('galleries', GalleryController::class);
+
+    // Video galleries routes start
     Route::resource('video-galleries', VideoGalleryController::class);
+
+    // testimonial routes start
     Route::resource('testimonials', TestimonialController::class);
+
+    // menus routes start
     Route::resource('menus', \App\Http\Controllers\Admin\MenuController::class);
+
+    // product inquiries routes start
     Route::get('/product-inquiries', [ProductInquiryManageController::class, 'index'])->name('product.inquiries.index');
     Route::get(
         '/product-inquiries/{productInquiry}',
@@ -108,12 +135,6 @@ Route::get('/video-gallery', [VideoController::class, 'index'])->name('video.gal
 Route::get('/category/{slug}', [FrontendCategoryController::class, 'show'])->name('category.show');
 Route::get('/sub-category/{slug}', [FrontendSubCategoryController::class, 'show'])->name('subcategory.show');
 Route::post('/product-inquiry', [ProductInquiryController::class, 'store'])->name('product.inquiry');
-
-
-
-
-
-
 
 
 require __DIR__ . '/auth.php';

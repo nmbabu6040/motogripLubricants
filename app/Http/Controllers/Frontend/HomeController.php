@@ -19,7 +19,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $featuredProducts = Product::where('featured', 1)->where('status', 1)->latest()->take(8)->get();
+        $featuredProducts = Product::where('featured', 1)->where('status', 1)->latest()->take(9)->get();
         $categories = Category::where('status', 1)->get();
         $sliders = Slider::where('status', 1)->orderBy('sort_order')->get();
         $latestBlogs = Blog::where('status', 1)->latest()->take(3)->get();
